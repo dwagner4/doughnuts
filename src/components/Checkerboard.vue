@@ -1,10 +1,10 @@
 <template>
   <div id="board">
-    <div class="white row0 col0"><img id="s0" src=""></div>
+    <div class="white row0 col0"><img id="s1" :src="imagered" ></div>
     <div class="grey row0 col1"></div>
-    <div class="white row0 col2"><img id="s1" src=""></div>
+    <div class="white row0 col2"><img id="s1" src="/static/red.png"></div>
     <div class="grey row0 col3"></div>
-    <div class="white row0 col4"><img id="s2" src=""></div>
+    <div class="white row0 col4"><img id="s2" :src="require('@/assets/red.png')"></div>
     <div class="grey row0 col5"></div>
     <div class="white row0 col6"><img id="s3" src=""></div>
     <div class="grey row0 col7"></div>
@@ -68,12 +68,37 @@
 </template>
 
 <script>
+
+import imgred from '@/assets/red.png'
+
 export default {
-  
+  data () {
+    return {
+      match: 'rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb',
+      imagered: imgred
+    }
+  },
+  computed: {
+    username: function () {
+      return this.$store.state.name;
+    }
+  },
+  methods: {
+    spcImg: spcCode => {
+      switch ( spcCode ) {
+        case 'r':
+          return "@/assets/red.png"
+        case 'b': 
+          return 'src="@/assets/blk.png"' 
+        default:
+          return ""
+      }
+    }
+  }
 }
 </script>
 
-<style <style scoped>
+<style scoped>
   #board {
     display: grid;
     grid-template-columns: repeat( 8, 1fr) ;
