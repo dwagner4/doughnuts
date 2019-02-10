@@ -22,6 +22,7 @@
                         <v-list-tile-title class="white--text">{{ link.text }}</v-list-tile-title>
                     </v-list-tile-content>  
                 </v-list-tile>
+                <v-list-tile> <Authentication /> </v-list-tile>
             </v-list>
         </v-navigation-drawer>
     </nav>
@@ -33,7 +34,13 @@
 
 
 <script>
+
+import Authentication from "@/components/Authentication.vue";
+
 export default {
+    components: {
+        Authentication
+    },
     data () {
       return {
             drawer: false,
