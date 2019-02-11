@@ -13,12 +13,18 @@ const FBConfig = {
 };
 firebase.initializeApp(FBConfig);
 
-const firebaseModule = {
-  state: {
-    user: null,
-    error: '',
-    initialized: false,
+const firebasestore = {
+  data () {
+    return {
+      user: null,
+      error: '',
+      initialized: false,
+      testdata: 'Dean is a programming god',
+    }
   },
+  getters: {
+    testit () {return 'yoho'}
+  }
   mutations: {
     SET_USER(state, user) {
       state.user = user;
@@ -72,4 +78,4 @@ const firebaseModule = {
   },
 };
 
-export default firebaseModule;
+export default firebasestore;

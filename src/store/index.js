@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import firebase from './modules/firebasestore'
-import checkerstore from './modules/checkersstore'
+import firebasestore from '@/store//modules/firebasestore'
+import checkersstore from '@/store//modules/checkersstore'
 
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    firebase,
-    checkerstore
+    firebasestore,
+    checkersstore
   }
 })

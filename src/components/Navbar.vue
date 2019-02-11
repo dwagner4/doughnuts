@@ -52,7 +52,8 @@ export default {
     },
     computed: {
         username: function () {
-            return this.$store.state.name;
+            console.log("yoho",this.$store.state.testdata)
+            return this.$store.state.testdata;
         }
     }
 }
