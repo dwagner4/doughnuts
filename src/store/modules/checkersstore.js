@@ -1,13 +1,7 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  data () {
-    return {
-
-    }
+export default {
+  state: {
+    match: 'rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb'
   },
   mutations: {
 
@@ -15,4 +9,4 @@ export default new Vuex.Store({
   actions: {
 
   }
-})
+}
