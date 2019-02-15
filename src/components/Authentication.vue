@@ -44,7 +44,7 @@
 export default {
   name: "Authentication",
   created: function() {
-    this.$store.dispatch('onAuth');
+    this.$store.dispatch('initauth');
   },
   computed: {
     user() {
