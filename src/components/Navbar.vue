@@ -6,10 +6,7 @@
                 <span>Checkers for the masses, </span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn>
-                <span>Sign out</span>
-                <v-icon right>exit_to_app</v-icon>
-            </v-btn>
+            <authentication />
         </v-toolbar>
 
         <v-navigation-drawer v-model="drawer" app class="indigo">
@@ -27,17 +24,17 @@
         </v-navigation-drawer>
     </nav>
 
-    
-    
 </template>
 
 
 
 <script>
 
+import Authentication from '@/components/Authentication'
+
 export default {
     components: {
-        
+        Authentication
     },
     data () {
       return {
