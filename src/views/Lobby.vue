@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Home Page</h1>
+    <h1>Lobby</h1>
+    <Authentication />
   </div>
 </template>
 
