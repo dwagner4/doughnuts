@@ -3,7 +3,7 @@
         <v-toolbar app dark class="indigo" >
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
-                <span>Checkers for the masses, </span>
+                <span>Doughnuts, {{displayname}}</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <authentication />
@@ -48,8 +48,11 @@ export default {
     },
     computed: {
         username: function () {
-            console.log("yoho",this.$store.state.testdata)
-            return this.$store.state.testdata;
+            console.log("yoho",this.$store.state.cker.match)
+            return this.$store.state.cker.match;
+        },
+        displayname: function () {
+            return this.$store.getters.displayName
         }
     }
 }

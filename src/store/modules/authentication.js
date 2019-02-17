@@ -10,22 +10,34 @@ export default {
     },
     isSignedIn(state) {
       return state.status;
+    },
+    displayName (state) {
+      let tempName = state.user.displayName
+      if (!tempName) {tempName = 'no name?'}
+      return tempName
+      // return 'Atom'
     }
   },
 
   mutations: {
     onAuthStateChanged(state, user) {
-      state.user = user; // firebaseが返したユーザー情報
+      state.user = user; 
     },
     onUserStatusChanged(state, status) {
-      state.status = status; // ログインしているかどうか true or false
+      state.status = status; 
     }
   },
   actions: {
     initauth ( context ) {
       firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
       firebase.auth().onAuthStateChanged(user => {
-        user = user ? user : {};
+        if (user) {
+          user = user
+        } else {
+          user = {}
+        }
+
+
         context.commit("onAuthStateChanged", user);
         context.commit("onUserStatusChanged", user.uid ? true : false);
       });

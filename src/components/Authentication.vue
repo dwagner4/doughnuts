@@ -1,15 +1,15 @@
 <template>
   <div>
-    <!-- ログイン時にはフォームとログアウトボタンを表示 -->
+
     <div v-if="userStatus" key="login">
-      <!-- <p>{{ user.displayName }}</p> -->
       <div class="text-xs-center">
         <v-btn outline color="info" @click="doLogout">Sign out</v-btn>
       </div>
     </div>
-    <!-- 未ログイン時にはログインボタンを表示 -->
+
     <div v-else key="logout">
-      <button type="button" class="google-button" @click="doLogin">
+      <v-btn outline color="white" @click="doLogin">Login</v-btn>
+      <!-- <button type="button" class="google-button" @click="doLogin">
         <span class="google-button__icon">
           <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -34,7 +34,7 @@
           </svg>
         </span>
         <span class="google-button__text">Sign in with Google</span>
-      </button>
+      </button> -->
     </div>
   </div>
 </template>

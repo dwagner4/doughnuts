@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
 
 
+
     <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -22,6 +23,7 @@
         messagingSenderId: "1235417565"
       };
       firebase.initializeApp(config);
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
     </script>
 
   </head>
