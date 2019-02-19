@@ -11,7 +11,19 @@
 
 
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-functions.js"></script> -->
+
+    <!-- Comment out (or don't include) services that you don't want to use -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-storage.js"></script> -->
+
     <script>
       // Initialize Firebase
       var config = {
@@ -23,7 +35,8 @@
         messagingSenderId: "1235417565"
       };
       firebase.initializeApp(config);
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+      
+ 
     </script>
 
   </head>

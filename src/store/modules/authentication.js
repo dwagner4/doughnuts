@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default {
   state: {
     user: {},
@@ -29,25 +30,23 @@ export default {
   },
   actions: {
     initauth ( context ) {
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
-      firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-          user = user
-        } else {
-          user = {}
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      firebase.auth().onAuthStateChanged(u => {
+        if (!u) {
+          u = {}
         }
 
 
-        context.commit("onAuthStateChanged", user);
-        context.commit("onUserStatusChanged", user.uid ? true : false);
+        context.commit("onAuthStateChanged", u);
+        context.commit("onUserStatusChanged", u.uid ? true : false);
       });
     },
-    googlelogin ( context ) {
+    googlelogin (  ) {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider);
     },
-    logout ( context ) {
-      firebase.auth().signOut();
+    logout (  ) {
+        firebase.auth().signOut();
     }
   }
 }
