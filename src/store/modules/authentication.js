@@ -66,6 +66,7 @@ export default {
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log("YYYYYYYY  ", errorCode, errorMessage)
+        alert("login error, " + errorCode + ", " + errorMessage)
       })
     },
     logout (  ) {
