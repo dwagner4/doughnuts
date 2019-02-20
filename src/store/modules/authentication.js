@@ -30,7 +30,8 @@ export default {
   },
   actions: {
     initauth ( context ) {
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
       firebase.auth().onAuthStateChanged(u => {
         if (!u) {
           u = {}
@@ -58,7 +59,14 @@ export default {
     },
     googlelogin (  ) {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider);
+      firebase.auth().signInWithPopup(provider).then( result => {
+        let user = result.user;
+        console.log("XXXXXXXXXXXXX  ", user)
+      }).catch( error => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("YYYYYYYY  ", errorCode, errorMessage)
+      })
     },
     logout (  ) {
         firebase.auth().signOut();
