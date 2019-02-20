@@ -34,6 +34,21 @@ export default {
       firebase.auth().onAuthStateChanged(u => {
         if (!u) {
           u = {}
+        } else {
+          let docRef = db.collection("users").doc(u.uid);
+          console.log(u.uid)
+          docRef.get().then(function (doc) {
+            if (doc.exists) {
+              console.log(doc)
+            } else {
+              let setRef = db.collection("users")
+              setRef.doc(u.uid).set({
+                userID: u.uid,
+                username: u.displayName
+              })
+            }
+            
+          })
         }
 
 
