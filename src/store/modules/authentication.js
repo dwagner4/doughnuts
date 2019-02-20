@@ -2,12 +2,16 @@
 export default {
   state: {
     user: {},
-    status: false
+    status: false,
+    userprofile: {}
   },
 
   getters: {
     user(state) {
       return state.user;
+    },
+    userprofile(state) {
+      return state.userprofile
     },
     isSignedIn(state) {
       return state.status;
@@ -21,11 +25,14 @@ export default {
   },
 
   mutations: {
-    onAuthStateChanged(state, user) {
+    setUser(state, user) {
       state.user = user; 
     },
-    onUserStatusChanged(state, status) {
+    setStatus(state, status) {
       state.status = status; 
+    },
+    setUserProfile(state, profile) {
+      state.userprofile = profile;
     }
   },
   actions: {
@@ -40,21 +47,22 @@ export default {
           console.log(u.uid)
           docRef.get().then(function (doc) {
             if (doc.exists) {
-              console.log(doc)
+              context.commit("setUserProfile", doc)
             } else {
               let setRef = db.collection("users")
               setRef.doc(u.uid).set({
                 userID: u.uid,
                 username: u.displayName
               })
+              context.commit("setUserProfile", {
+                userID: u.uid,
+                username: u.displayName
+              })
             }
-            
           })
         }
-
-
-        context.commit("onAuthStateChanged", u);
-        context.commit("onUserStatusChanged", u.uid ? true : false);
+        context.commit("setUser", u);
+        context.commit("setStatus", u.uid ? true : false);
       });
     },
     googlelogin (  ) {

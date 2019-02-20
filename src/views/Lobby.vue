@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Lobby</h1>
-    <Authentication />
+    <h1>Lobby {{displayName}}</h1>
   </div>
 </template>
 
@@ -12,6 +11,9 @@
 
     },
     computed: {
+      displayname: function () {
+            return this.$store.getters.displayName
+        }
       // testdata: function () {
       //   return this.$store.state.testdata;
       //   // return 'yoho Dean'
