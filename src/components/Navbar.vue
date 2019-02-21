@@ -3,7 +3,7 @@
         <v-toolbar app dark class="indigo" >
             <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
             <v-toolbar-title>
-                <span>Doughnuts 4, {{displayname}}</span>
+                <span>Doughnuts 5, {{displayname}}</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <authentication />

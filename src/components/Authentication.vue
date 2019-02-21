@@ -3,10 +3,7 @@
 
     <v-dialog v-model="dialog"  width="500">
       <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
+        <v-card-title class="headline grey lighten-2" primary-title>
           Checkers Login
         </v-card-title>
 
@@ -18,13 +15,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            flat
-            @click="dialog = false"
-          >
-            No Thanks
-          </v-btn>
+          <v-btn color="primary" flat @click="dialog = false">No Thanks</v-btn>
           <button type="button" class="google-button" @click="doLogin">
             <span class="google-button__icon">
               <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +46,56 @@
       </v-card>
     </v-dialog>
   
-    
+    <v-dialog v-model="registerDialog"  width="500">
+      <v-card>
+        <v-card-title class="headline grey lighten-2" primary-title>
+          Registration
+        </v-card-title>
+
+        <v-card-text>
+          Fill out the form below and hit "Register"
+        </v-card-text>
+
+        <v-form v-model="valid">
+          <v-container>
+            <v-layout>
+              <v-flex
+                xs12
+                md4
+              >
+                <v-text-field
+                  v-model="username"
+                  :rules="nameRules"
+                  :counter="15"
+                  label="User name"
+                  required
+                ></v-text-field>
+              </v-flex>
+
+              <v-flex
+                xs12
+                md4
+              >
+                <v-text-field
+                  v-model="email"
+                  :rules="emailRules"
+                  label="E-mail"
+                  required
+                ></v-text-field>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-form>
+
+        <v-divider></v-divider>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" flat @click="$store.commit('setRegisterDialog', false)">No Thanks</v-btn>
+          <v-btn color="primary" flat @click="doRegister">Register</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
 
     <div v-if="userStatus" key="login">
       <div class="text-xs-center">
@@ -78,7 +118,18 @@ export default {
   },
    data () {
     return {
-      dialog: false
+      dialog: false,
+      valid: false,
+      username: '',
+      nameRules: [
+        v => !!v || 'User name is required',
+        v => v.length <= 10 || 'Name must be less than 10 characters'
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid'
+      ]
     }
   },
   computed: {
@@ -87,6 +138,9 @@ export default {
     },
     userStatus() {
       return this.$store.getters.isSignedIn;
+    },
+    registerDialog() {
+      return this.$store.getters.registerDialog;
     }
   },
   methods: {
@@ -99,6 +153,14 @@ export default {
     },
     doLogout() {
       this.$store.dispatch('logout');
+    },
+    doRegisterForm() {
+      this.dialog = false
+      this.$store.commit('setRegisterDialog', true)
+    },
+    doRegister() {
+      alert("in the element " + this.username)
+      this.$store.dispatch('doRegister',{username: this.username, email: this.email})
     }
   }
 };

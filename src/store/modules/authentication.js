@@ -3,7 +3,8 @@ export default {
   state: {
     user: {},
     status: false,
-    userprofile: {}
+    registerDialog: false,
+    userprofile: {},
   },
 
   getters: {
@@ -21,6 +22,9 @@ export default {
       if (!tempName) {tempName = 'no name?'}
       return tempName
       // return 'Atom'
+    },
+    registerDialog (state) {
+      return state.registerDialog
     }
   },
 
@@ -33,6 +37,9 @@ export default {
     },
     setUserProfile(state, profile) {
       state.userprofile = profile;
+    },
+    setRegisterDialog(state, dialogState) {
+      state.registerDialog = dialogState;
     }
   },
   actions: {
@@ -49,15 +56,16 @@ export default {
             if (doc.exists) {
               context.commit("setUserProfile", doc)
             } else {
-              let setRef = db.collection("users")
-              setRef.doc(u.uid).set({
-                userID: u.uid,
-                username: u.displayName
-              })
-              context.commit("setUserProfile", {
-                userID: u.uid,
-                username: u.displayName
-              })
+              context.commit('setRegisterDialog', true)
+              // let setRef = db.collection("users")
+              // setRef.doc(u.uid).set({
+              //   userID: u.uid,
+              //   username: u.displayName
+              // })
+              // context.commit("setUserProfile", {
+              //   userID: u.uid,
+              //   username: u.displayName
+              // })
             }
           })
         }
@@ -79,6 +87,20 @@ export default {
     },
     logout (  ) {
         firebase.auth().signOut();
+    },
+    doRegister ({ context }, payload) {
+      alert("WTF, register me?")
+      alert("yoho " + payload.username)
+      let setRef = db.collection("users")
+      let timestamp = Date.now()
+      let params = {
+        userID: context.user.uid,
+        username: payload.username,
+        useremail: payload.email,
+        stamp: timestamp
+      }
+      setRef.doc(u.uid).set(params)
+      context.commit("setUserProfile", {params})
     }
   }
 }
