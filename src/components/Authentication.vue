@@ -159,7 +159,6 @@ export default {
       this.$store.commit('setRegisterDialog', true)
     },
     doRegister() {
-      alert("in the element " + this.username)
       this.$store.dispatch('doRegister',{username: this.username, email: this.email})
     }
   }

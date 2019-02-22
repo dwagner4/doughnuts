@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h1>Lobby {{displayName}}</h1>
+    <h1>Lobby</h1>
+    <v-spacer></v-spacer>
+    <h2>displayName: {{displayname}}</h2>
+    <h2>profile: {{profile}}</h2>
   </div>
 </template>
 
@@ -10,14 +13,18 @@
     components: {
 
     },
+    data () {
+      return {
+        dddd: 'yoho'
+      }
+    },
     computed: {
       displayname: function () {
-            return this.$store.getters.displayName
-        }
-      // testdata: function () {
-      //   return this.$store.state.testdata;
-      //   // return 'yoho Dean'
-      // }
+          return this.$store.getters.displayName
+      },
+      profile: function () {
+        return this.$store.getters.userprofile
+      }
     }
   }
 </script>

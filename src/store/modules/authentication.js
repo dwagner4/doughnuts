@@ -49,23 +49,15 @@ export default {
       firebase.auth().onAuthStateChanged(u => {
         if (!u) {
           u = {}
+          context.commit("setUserProfile", {})
         } else {
           let docRef = db.collection("users").doc(u.uid);
           console.log(u.uid)
           docRef.get().then(function (doc) {
             if (doc.exists) {
-              context.commit("setUserProfile", doc)
+              context.commit("setUserProfile", doc.data())
             } else {
               context.commit('setRegisterDialog', true)
-              // let setRef = db.collection("users")
-              // setRef.doc(u.uid).set({
-              //   userID: u.uid,
-              //   username: u.displayName
-              // })
-              // context.commit("setUserProfile", {
-              //   userID: u.uid,
-              //   username: u.displayName
-              // })
             }
           })
         }
@@ -88,19 +80,23 @@ export default {
     logout (  ) {
         firebase.auth().signOut();
     },
-    doRegister ({ context }, payload) {
-      alert("WTF, register me?")
-      alert("yoho " + payload.username)
+    doRegister ( context, payload ) {
       let setRef = db.collection("users")
       let timestamp = Date.now()
       let params = {
-        userID: context.user.uid,
+        userID: context.state.user.uid,
         username: payload.username,
         useremail: payload.email,
         stamp: timestamp
       }
-      setRef.doc(u.uid).set(params)
-      context.commit("setUserProfile", {params})
+      setRef.doc(context.state.user.uid).set(params)
+      context.commit("setUserProfile", {
+        userID: context.state.user.uid,
+        username: payload.username,
+        useremail: payload.email,
+        stamp: timestamp
+      })
+      context.commit('setRegisterDialog', false)
     }
   }
 }
