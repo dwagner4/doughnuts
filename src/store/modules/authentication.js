@@ -5,6 +5,7 @@ export default {
     status: false,
     registerDialog: false,
     userprofile: {},
+    heartBeat: null,
   },
 
   getters: {
@@ -40,6 +41,9 @@ export default {
     },
     setRegisterDialog(state, dialogState) {
       state.registerDialog = dialogState;
+    },
+    HEART_BEAT( state, beat) {
+      state.heartBeat = beat
     }
   },
   actions: {
@@ -50,12 +54,23 @@ export default {
         if (!u) {
           u = {}
           context.commit("setUserProfile", {})
+          if (context.state.heartBeat) {
+            clearInterval(context.state.heartBeat)
+          }
         } else {
           let docRef = db.collection("users").doc(u.uid);
           console.log(u.uid)
           docRef.get().then(function (doc) {
             if (doc.exists) {
-              context.commit("setUserProfile", doc.data())
+              let theProfile = doc.data()
+              context.commit("setUserProfile", theProfile)
+              // context.state.heartBeat = setInterval(function () {
+              let hartTemp = setInterval(function () {
+                console.log("I am in the heartbeat")
+                let setRef = db.collection("users").doc(theProfile.userID)
+                setRef.update({heartBeat: firebase.firestore.Timestamp.now()})
+              }, 10000)
+              context.commit('HEART_BEAT', hartTemp)
             } else {
               context.commit('setRegisterDialog', true)
             }
@@ -82,19 +97,18 @@ export default {
     },
     doRegister ( context, payload ) {
       let setRef = db.collection("users")
-      let timestamp = Date.now()
       let params = {
         userID: context.state.user.uid,
         username: payload.username,
         useremail: payload.email,
-        stamp: timestamp
+        stamp: firebase.firestore.Timestamp.now(),
       }
       setRef.doc(context.state.user.uid).set(params)
       context.commit("setUserProfile", {
-        userID: context.state.user.uid,
-        username: payload.username,
-        useremail: payload.email,
-        stamp: timestamp
+        userID: params.userID,
+        username: params.username,
+        useremail: params.email,
+        stamp: params.stamp
       })
       context.commit('setRegisterDialog', false)
     }
