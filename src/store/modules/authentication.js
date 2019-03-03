@@ -111,6 +111,9 @@ export default {
         stamp: params.stamp
       })
       context.commit('SET_REGISTER_DIALOG', false)
+    },
+    setRegDialog ( context, payload ) {
+      context.commit('SET_REGISTER_DIALOG', payload )
     }
   }
 }

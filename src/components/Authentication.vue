@@ -91,13 +91,13 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" flat @click="$store.commit('SET_REGISTER_DIALOG', false)">No Thanks</v-btn>
+          <v-btn color="primary" flat @click="hideRegDialog">No Thanks</v-btn>
           <v-btn color="primary" flat @click="doRegister">Register</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
 
-    <div v-if="userStatus" key="login">
+    <div v-if="isSignedIn" key="login">
       <div class="text-xs-center">
         <v-btn outline color="info" @click="doLogout">Sign out</v-btn>
       </div>
@@ -110,6 +110,8 @@
 </template>
 
 <script>
+
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Authentication",
@@ -133,15 +135,11 @@ export default {
     }
   },
   computed: {
-    user() {
-      return this.$store.getters.user;
-    },
-    userStatus() {
-      return this.$store.getters.isSignedIn;
-    },
-    registerDialog() {
-      return this.$store.getters.registerDialog;
-    }
+    ...mapGetters([
+      'user',
+      'isSignedIn',
+      'registerDialog'
+    ])
   },
   methods: {
     openLoginDialog() {
@@ -156,10 +154,13 @@ export default {
     },
     doRegisterForm() {
       this.dialog = false
-      this.$store.commit('SET_REGISTER_DIALOG', true)
+      this.$store.dispatch('setRegDialog', true )
     },
     doRegister() {
       this.$store.dispatch('doRegister',{username: this.username, email: this.email})
+    },
+    hideRegDialog() {
+      this.$store.dispatch('setRegDialog', false )
     }
   }
 };
