@@ -91,7 +91,7 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" flat @click="$store.commit('setRegisterDialog', false)">No Thanks</v-btn>
+          <v-btn color="primary" flat @click="$store.commit('SET_REGISTER_DIALOG', false)">No Thanks</v-btn>
           <v-btn color="primary" flat @click="doRegister">Register</v-btn>
         </v-card-actions>
       </v-card>
@@ -156,7 +156,7 @@ export default {
     },
     doRegisterForm() {
       this.dialog = false
-      this.$store.commit('setRegisterDialog', true)
+      this.$store.commit('SET_REGISTER_DIALOG', true)
     },
     doRegister() {
       this.$store.dispatch('doRegister',{username: this.username, email: this.email})

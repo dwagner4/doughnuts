@@ -30,16 +30,16 @@ export default {
   },
 
   mutations: {
-    setUser(state, user) {
+    SET_USER(state, user) {
       state.user = user; 
     },
-    setStatus(state, status) {
+    SET_STATUS(state, status) {
       state.status = status; 
     },
-    setUserProfile(state, profile) {
+    SET_USER_PROFILE(state, profile) {
       state.userprofile = profile;
     },
-    setRegisterDialog(state, dialogState) {
+    SET_REGISTER_DIALOG(state, dialogState) {
       state.registerDialog = dialogState;
     },
     HEART_BEAT( state, beat) {
@@ -53,7 +53,7 @@ export default {
       firebase.auth().onAuthStateChanged(u => {
         if (!u) {
           u = {}
-          context.commit("setUserProfile", {})
+          context.commit("SET_USER_PROFILE", {})
           if (context.state.heartBeat) {
             clearInterval(context.state.heartBeat)
           }
@@ -63,7 +63,7 @@ export default {
           docRef.get().then(function (doc) {
             if (doc.exists) {
               let theProfile = doc.data()
-              context.commit("setUserProfile", theProfile)
+              context.commit("SET_USER_PROFILE", theProfile)
               // context.state.heartBeat = setInterval(function () {
               let hartTemp = setInterval(function () {
                 console.log("I am in the heartbeat")
@@ -72,12 +72,12 @@ export default {
               }, 10000)
               context.commit('HEART_BEAT', hartTemp)
             } else {
-              context.commit('setRegisterDialog', true)
+              context.commit('SET_REGISTER_DIALOG', true)
             }
           })
         }
-        context.commit("setUser", u);
-        context.commit("setStatus", u.uid ? true : false);
+        context.commit("SET_USER", u);
+        context.commit("SET_STATUS", u.uid ? true : false);
       });
     },
     googlelogin (  ) {
@@ -104,13 +104,13 @@ export default {
         stamp: firebase.firestore.Timestamp.now(),
       }
       setRef.doc(context.state.user.uid).set(params)
-      context.commit("setUserProfile", {
+      context.commit("SET_USER_PROFILE", {
         userID: params.userID,
         username: params.username,
         useremail: params.email,
         stamp: params.stamp
       })
-      context.commit('setRegisterDialog', false)
+      context.commit('SET_REGISTER_DIALOG', false)
     }
   }
 }
