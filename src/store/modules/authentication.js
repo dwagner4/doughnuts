@@ -15,6 +15,9 @@ export default {
     userprofile(state) {
       return state.userprofile
     },
+    username(state) {
+      return state.username
+    },
     isSignedIn(state) {
       return state.status;
     },
