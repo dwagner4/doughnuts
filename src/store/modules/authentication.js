@@ -1,11 +1,13 @@
 /* eslint-disable */
+
+import { db, myauth, firebase } from '@/fb'
+
 export default {
   state: {
     user: {},
     status: false,
     registerDialog: false,
     userprofile: {},
-    heartBeat: null,
   },
 
   getters: {
@@ -45,21 +47,14 @@ export default {
     SET_REGISTER_DIALOG(state, dialogState) {
       state.registerDialog = dialogState;
     },
-    HEART_BEAT( state, beat) {
-      state.heartBeat = beat
-    }
   },
   actions: {
     initauth ( context ) {
-      // firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-      firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE)
-      firebase.auth().onAuthStateChanged(u => {
+      myauth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      myauth.onAuthStateChanged(u => {
         if (!u) {
           u = {}
           context.commit("SET_USER_PROFILE", {})
-          if (context.state.heartBeat) {
-            clearInterval(context.state.heartBeat)
-          }
         } else {
           let docRef = db.collection("users").doc(u.uid);
           console.log(u.uid)
@@ -67,13 +62,6 @@ export default {
             if (doc.exists) {
               let theProfile = doc.data()
               context.commit("SET_USER_PROFILE", theProfile)
-              // context.state.heartBeat = setInterval(function () {
-              let hartTemp = setInterval(function () {
-                console.log("I am in the heartbeat")
-                let setRef = db.collection("users").doc(theProfile.userID)
-                setRef.update({heartBeat: firebase.firestore.Timestamp.now()})
-              }, 10000)
-              context.commit('HEART_BEAT', hartTemp)
             } else {
               context.commit('SET_REGISTER_DIALOG', true)
             }
@@ -85,7 +73,7 @@ export default {
     },
     googlelogin (  ) {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then( result => {
+      myauth.signInWithPopup(provider).then( result => {
         let user = result.user;
         console.log("XXXXXXXXXXXXX  ", user)
       }).catch( error => {
@@ -96,7 +84,7 @@ export default {
       })
     },
     logout (  ) {
-        firebase.auth().signOut();
+        myauth.signOut();
     },
     doRegister ( context, payload ) {
       let setRef = db.collection("users")
