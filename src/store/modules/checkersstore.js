@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+import { db } from '@/fb'
+
 export default {
   state: {
     match: {gameLog: [ 'a','b','c','d'], red: 'dean', blk: 'logan', status: 'active'},
