@@ -1,99 +1,94 @@
 <template>
   <div id="board">
-    <div class="white row0 col0"><img id="s1" :src="spcImg('r')" ></div>
+    <div class="white row0 col0"><img :src="image" /></div>
     <div class="grey row0 col1"></div>
-    <div class="white row0 col2"><img cid="s1" src="../assets/red.png"></div>
+    <div class="white row0 col2"><img :src="image" /></div>
     <div class="grey row0 col3"></div>
-    <div class="white row0 col4"><img id="s2" src="../assets/blk.png"></div>
+    <div class="white row0 col4"><img :src="spaceImg(2)" /></div>
     <div class="grey row0 col5"></div>
-    <div class="white row0 col6"><img id="s3" src=""></div>
+    <div class="white row0 col6"><img :src="spaceImg(1)" /></div>
     <div class="grey row0 col7"></div>
     <div class="grey row1 col0"></div>
-    <div class="white row1 col1"><img id="s4" src=""></div>
+    <div class="white row1 col1"><img :src="image" /></div>
     <div class="grey row1 col2"></div>
-    <div class="white row1 col3"><img id="s5" src=""></div>
+    <div class="white row1 col3"><img :src="image" /></div>
     <div class="grey row1 col4"></div>
-    <div class="white row1 col5"><img id="s6" src=""></div>
+    <div class="white row1 col5"><img :src="image" /></div>
     <div class="grey row1 col6"></div>
-    <div class="white row1 col7"><img id="s7" src=""></div>
-    <div class="white row2 col0"><img id="s8" src=""></div>
+    <div class="white row1 col7"><img :src="image" /></div>
+    <div class="white row2 col0"><img :src="image" /></div>
     <div class="grey row2 col1"></div>
-    <div class="white row2 col2"><img id="s9" src=""></div>
+    <div class="white row2 col2"><img :src="image" /></div>
     <div class="grey row2 col3"></div>
-    <div class="white row2 col4"><img id="s10" src=""></div>
+    <div class="white row2 col4"><img :src="image" /></div>
     <div class="grey row2 col5"></div>
-    <div class="white row2 col6"><img id="s11" src=""></div>
+    <div class="white row2 col6"><img :src="image" /></div>
     <div class="grey row2 col7"></div>
     <div class="grey row3 col0"></div>
-    <div class="white row3 col1"><img id="s12" src=""></div>
+    <div class="white row3 col1"><img :src="image" /></div>
     <div class="grey row3 col2"></div>
-    <div class="white row3 col3"><img id="s13" src=""></div>
+    <div class="white row3 col3"><img :src="image" /></div>
     <div class="grey row3 col4"></div>
-    <div class="white row3 col5"><img id="s14" src=""></div>
+    <div class="white row3 col5"><img :src="image" /></div>
     <div class="grey row3 col6"></div>
-    <div class="white row3 col7"><img id="s15" src=""></div>
-    <div class="white row4 col0"><img id="s16" src=""></div>
+    <div class="white row3 col7"><img :src="image" /></div>
+    <div class="white row4 col0"><img :src="image" /></div>
     <div class="grey row4 col1"></div>
-    <div class="white row4 col2"><img id="s17" src=""></div>
+    <div class="white row4 col2"><img :src="image" /></div>
     <div class="grey row4 col3"></div>
-    <div class="white row4 col4"><img id="s18" src=""></div>
+    <div class="white row4 col4"><img :src="image" /></div>
     <div class="grey row4 col5"></div>
-    <div class="white row4 col6"><img id="s19" src=""></div>
+    <div class="white row4 col6"><img :src="image" /></div>
     <div class="grey row4 col7"></div>
     <div class="grey row5 col0"></div>
-    <div class="white row5 col1"><img id="s20" src=""></div>
+    <div class="white row5 col1"><img :src="image" /></div>
     <div class="grey row5 col2"></div>
-    <div class="white row5 col3"><img id="s21" src=""></div>
+    <div class="white row5 col3"><img :src="image" /></div>
     <div class="grey row5 col4"></div>
-    <div class="white row5 col5"><img id="s22" src=""></div>
+    <div class="white row5 col5"><img :src="image" /></div>
     <div class="grey row5 col6"></div>
-    <div class="white row5 col7"><img id="s23" src=""></div>
-    <div class="white row6 col0"><img id="s24" src=""></div>
+    <div class="white row5 col7"><img :src="image" /></div>
+    <div class="white row6 col0"><img :src="image" /></div>
     <div class="grey row6 col1"></div>
-    <div class="white row6 col2"><img id="s25" src=""></div>
+    <div class="white row6 col2"><img :src="image" /></div>
     <div class="grey row6 col3"></div>
-    <div class="white row6 col4"><img id="s26" src=""></div>
+    <div class="white row6 col4"><img :src="image" /></div>
     <div class="grey row6 col5"></div>
-    <div class="white row6 col6"><img id="s27" src=""></div>
+    <div class="white row6 col6"><img :src="image" /></div>
     <div class="grey row6 col7"></div>
     <div class="grey row7 col0"></div>
-    <div class="white row7 col1"><img id="s28" src=""></div>
+    <div class="white row7 col1"><img :src="image" /></div>
     <div class="grey row7 col2"></div>
-    <div class="white row7 col3"><img id="s29" src=""></div>
+    <div class="white row7 col3"><img :src="image" /></div>
     <div class="grey row7 col4"></div>
-    <div class="white row7 col5"><img id="s30" src=""></div>
+    <div class="white row7 col5"><img :src="image" /></div>
     <div class="grey row7 col6"></div>
-    <div class="white row7 col7"><img id="s31" src="../assets/red.png"></div>
+    <div class="white row7 col7"><img :src="image" /></div>
   </div>
 </template>
 
 <script>
 
-import imgred from '@/assets/red.png'
-
 export default {
   data () {
     return {
-      match: 'rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb',
-      imagered: imgred
+      image: './assets/blk.png'
     }
   },
   computed: {
-    username: function () {
-      return this.$store.state.name;
-    }
+    
   },
   methods: {
-    spcImg: spcCode => {
-      switch ( spcCode ) {
-        case 'r':
-          return '../assets/red.png'
-        case 'b': 
-          return 'src="@/assets/blk.png"' 
-        default:
-          return ""
+    spaceImg(spaceInt) {
+      if ( spaceInt == 2 ) {
+        return './assets/blk.png'
+      } else {
+        return './assets/red.png'
       }
     }
+  },
+  created: function() {
+
   }
 }
 </script>
