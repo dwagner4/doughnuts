@@ -15,7 +15,7 @@ export default new Vuex.Store({
     a: 'AAAA',
     loading: false,
     loadedPosts: [ 
-      {id: 'oiuaoduasod', date: new Date(), post: 'Test Post'}
+      {id: 'oiuaoduasod', date: '2019-03-25', post: 'This is hard coded in Vuex'}
       ],
   },
   mutations: {
@@ -32,11 +32,11 @@ export default new Vuex.Store({
   actions: {
     createPost({commit, getters}, payload) {
       commit('SET_LOADING', true)
-      //we could also just pass payload
+      //we could also just pass payload but this is verbose
       const post = {
         post: payload.post,
         date: payload.date,
-        creatorId: this.$store.myauth.getters.user.uid
+        //creator: payload.creatorId
       }
       //Reach out to Firebase and store
       firebase.firestore().collection('posts').add(post)

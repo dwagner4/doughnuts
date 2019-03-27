@@ -3,12 +3,12 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
  var config = {
-    apiKey: "AIzaSyAddkZMozcJkcrOsjfAXWeI8rFOzVqk3-w",
-    authDomain: "chalkers-donuts.firebaseapp.com",
-    databaseURL: "https://chalkers-donuts.firebaseio.com",
-    projectId: "chalkers-donuts",
-    storageBucket: "chalkers-donuts.appspot.com",
-    messagingSenderId: "1235417565"
+        apiKey: "AIzaSyDD0R7MRnGk1aABW4KrIntx-FoTWTuBb_Y",
+    authDomain: "this-codebase.firebaseapp.com",
+    databaseURL: "https://this-codebase.firebaseio.com",
+    projectId: "this-codebase",
+    storageBucket: "this-codebase.appspot.com",
+    messagingSenderId: "686550137052"
   };
   firebase.initializeApp(config);
   const db = firebase.firestore();
