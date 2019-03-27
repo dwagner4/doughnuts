@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import cker from './modules/checkersstore'
+import * as cker from './modules/ckerBdData'
 import fbauth from './modules/authentication'
 
 

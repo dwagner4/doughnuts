@@ -1,8 +1,8 @@
 <template>
   <div class="about">
     <v-text-field
-                  v-model="matchid"
-                  label="Match ID"
+                  v-model="boardstate"
+                  label="board state"
                   @change="matchChange"
                 >
     </v-text-field>
@@ -22,7 +22,7 @@ export default {
   },
   data () {
     return {
-      matchid: "yo"
+      boardstate: "rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb"
     }
   },
   computed: {
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     matchChange () {
-      this.$store.dispatch('matchIdChange', this.matchid);
+      this.$store.dispatch('doMove', this.boardstate);
     }
   }
   
