@@ -38,8 +38,8 @@
             }
         },
         created() {
-            //load meetups from firebase
-            this.$store.dispatch('loadPosts')
+            //load saved meetups from firebase
+            this.$store.dispatch('loadStoredPosts')
         },
         computed: {
             loading() {

@@ -38,7 +38,7 @@ export default {
   actions: {
     createPost({commit, getters}, payload) {
       commit('SET_LOADING', true)
-      //we could also just pass payload but this is verbose
+      //we could also just pass payload but adding user displayname
       const post = {
         post: payload.post,
         date: payload.date,
@@ -61,9 +61,27 @@ export default {
         commit('SET_LOADING', true)
       })
     },
-    loadPosts({commit}) {
+    listenForPosts({commit}) {
       commit('SET_LOADING', true)
-      firebase.firestore().collection('posts').onSnapshot((querySnapshot) => {
+      let postsArray = []
+      firebase.firestore().collection('posts').orderBy('date').onSnapshot(snapshot => {
+        let changes = snapshot.docChanges()
+        changes.forEach(change => {
+          //console.log(change.doc.data())
+          if(change.type == 'added') {
+            let post = change.doc.data()
+                post.id = change.doc.id
+                postsArray.push(post)
+                commit('SET_LOADED_POSTS', postsArray)
+                commit('SET_LOADING', false)
+          }
+        })
+      })
+    },
+    loadStoredPosts({commit}) {
+      commit('SET_LOADING', true)
+      firebase.firestore().collection('posts').get()
+      .then((querySnapshot) => {
         let postsArray = []
         querySnapshot.forEach((doc) => {
         let post = doc.data()
@@ -77,6 +95,6 @@ export default {
         console.log(error)
         commit('SET_LOADING', true)
       })
-    }
+    },
   }
 }
