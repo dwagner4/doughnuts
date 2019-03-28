@@ -3,6 +3,7 @@ import 'firebase/firestore'
 
 export default {
   state: {
+    user: null,
      loadedPosts: [ 
       {id: 'oiuaoduasod', date: '2019-03-25', post: 'hard coded in Vuex #1'},
       {id: '97s8adsadaf', date: '2019-03-26', post: 'hard coded in Vuex #2'},
@@ -21,7 +22,10 @@ export default {
           return post.id === postId
         })
       }
-    }
+    },
+    user(state) {
+      return state.user
+    },
   },
   mutations: {
     CREATE_POST(state, payload) {
@@ -32,13 +36,13 @@ export default {
     },
   },
   actions: {
-      createPost({commit, getters}, payload) {
+    createPost({commit, getters}, payload) {
       commit('SET_LOADING', true)
       //we could also just pass payload but this is verbose
       const post = {
         post: payload.post,
         date: payload.date,
-        //creator: payload.creatorId
+        displayName: getters.displayName
       }
       //Reach out to Firebase and store
       firebase.firestore().collection('posts').add(post)
@@ -59,8 +63,7 @@ export default {
     },
     loadPosts({commit}) {
       commit('SET_LOADING', true)
-      firebase.firestore().collection('posts').get()
-      .then((querySnapshot) => {
+      firebase.firestore().collection('posts').onSnapshot((querySnapshot) => {
         let postsArray = []
         querySnapshot.forEach((doc) => {
         let post = doc.data()

@@ -19,7 +19,7 @@
                     </v-layout>
                 <v-flex xs6 v-for="post in posts" :key="post.id" class="mb-1">
                     <v-card dark color="secondary">
-                        <v-card-text class="px-0">Post:{{post.post}}---Date:{{post.date}}</v-card-text>
+                        <v-card-text class="px-0">{{post.displayName}}({{post.date}}): {{post.post}}</v-card-text>
                     </v-card>
                 </v-flex>
             </v-layout>
@@ -33,7 +33,8 @@
         data() {
             return {
                 post: '',
-                date: new Date().toISOString().substr(0, 10)
+                // date: new Date().toISOString().substr(0, 10),
+                date: Math.floor(Date.now() / 100)
             }
         },
         created() {
@@ -55,7 +56,7 @@
                   date: this.date,
                 }
                 this.$store.dispatch('createPost', post)
-            }
+            },
         }
     }
 </script>
