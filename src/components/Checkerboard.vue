@@ -77,7 +77,7 @@ export default {
       img0: '', img1: '', img2: '', img3: '', img4: '', img5: '', img6: '', img7: '', 
       img8: '', img9: '', img10: '', img11: '', img12: '', img13: '', img14: '', img15: '', 
       img16: '', img17: '', img18: '', img19: '', img20: '', img21: '', img22: '', img23: '', 
-      img24: '', img25: '', img26: '', img27: '', img28: '', img29: '', img30: '', img31: './assets/blk.png', 
+      img24: '', img25: '', img26: '', img27: '', img28: '', img29: '', img30: '', img31: '', 
     }
   },
   computed: {
@@ -87,13 +87,51 @@ export default {
   },
   watch: {
     boardState: function (newBd, oldBd) {
-      for ( let cc = 0; cc < 32; cc++ ) {
-        if (oldBd && newBd && newBd[cc] !== oldBd[cc]) {
-          let datalabel = 'img' + cc
-          if (newBd[cc] === 'r') {this[datalabel] = './assets/red.png'}
-          if (newBd[cc] === 'b') {this[datalabel] = './assets/blk.png'}
+      let doChoice = function(code) {
+        let result = null
+        if ( code === 'r' ) {
+          result = './assets/red.png'
         }
+        if ( code === 'b' ) {
+          result = './assets/blk.png'
+        }
+        return result
       }
+       
+      this.img0 = doChoice(this.boardState[0])
+      this.img1 = doChoice(this.boardState[1])
+      this.img2 = doChoice(this.boardState[2])
+      this.img3 = doChoice(this.boardState[3])
+      this.img4 = doChoice(this.boardState[4])
+      this.img5 = doChoice(this.boardState[5])
+      this.img6 = doChoice(this.boardState[6])
+      this.img7 = doChoice(this.boardState[7])
+      this.img8 = doChoice(this.boardState[8])
+      this.img9 = doChoice(this.boardState[9])
+      this.img10 = doChoice(this.boardState[10])
+      this.img11 = doChoice(this.boardState[11])
+      this.img12 = doChoice(this.boardState[12])
+      this.img13 = doChoice(this.boardState[13])
+      this.img14 = doChoice(this.boardState[14])
+      this.img15 = doChoice(this.boardState[15])
+      this.img16 = doChoice(this.boardState[16])
+      this.img17 = doChoice(this.boardState[17])
+      this.img18 = doChoice(this.boardState[18])
+      this.img19 = doChoice(this.boardState[19])
+      this.img20 = doChoice(this.boardState[20])
+      this.img21 = doChoice(this.boardState[21])
+      this.img22 = doChoice(this.boardState[22])
+      this.img23 = doChoice(this.boardState[23])
+      this.img24 = doChoice(this.boardState[24])
+      this.img25 = doChoice(this.boardState[25])
+      this.img26 = doChoice(this.boardState[26])
+      this.img27 = doChoice(this.boardState[27])
+      this.img28 = doChoice(this.boardState[28])
+      this.img29 = doChoice(this.boardState[29])
+      this.img30 = doChoice(this.boardState[30])
+      this.img31 = doChoice(this.boardState[31])
+
+
     }
   },
   methods: {
