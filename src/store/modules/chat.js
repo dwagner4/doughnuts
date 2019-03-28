@@ -42,7 +42,7 @@ export default {
         displayName: getters.displayName
       }
       //Reach out to Firebase and store
-      firebase.firestore().collection('posts').add(post)
+      db.collection('posts').add(post)
       .then((data) => {
         //console.log(data)
         const id = data.id
@@ -58,7 +58,7 @@ export default {
     listenForPosts({commit}) {
       commit('SET_LOADING', true)
       let postsArray = []
-      firebase.firestore().collection('posts').orderBy('date').onSnapshot(snapshot => {
+      db.collection('posts').orderBy('date').onSnapshot(snapshot => {
         let changes = snapshot.docChanges()
         changes.forEach(change => {
           //console.log(change.doc.data())
