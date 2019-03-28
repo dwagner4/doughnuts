@@ -1,5 +1,4 @@
-import firebase from 'firebase/app'
-import 'firebase/firestore'
+import { db, myauth, firebase } from '@/fb'
 
 export default {
   state: {
@@ -28,9 +27,7 @@ export default {
     },
   },
   mutations: {
-    CREATE_POST(state, payload) {
-      state.loadedPosts.push(payload)
-    },
+    
     SET_LOADED_POSTS(state, payload){
       state.loadedPosts = payload
     },
@@ -50,10 +47,7 @@ export default {
         //console.log(data)
         const id = data.id
         //console.log("id is: ", id)
-        commit('CREATE_POST', {
-          ...post,
-          id: id
-        })
+      
         commit('SET_LOADING', false)
       })
       .catch((error) => {
@@ -78,23 +72,6 @@ export default {
         })
       })
     },
-    loadStoredPosts({commit}) {
-      commit('SET_LOADING', true)
-      firebase.firestore().collection('posts').get()
-      .then((querySnapshot) => {
-        let postsArray = []
-        querySnapshot.forEach((doc) => {
-        let post = doc.data()
-            post.id = doc.id
-            postsArray.push(post)
-        })
-        commit('SET_LOADED_POSTS', postsArray)
-        commit('SET_LOADING', false)
-      })
-      .catch((error) => {
-        console.log(error)
-        commit('SET_LOADING', true)
-      })
-    },
+    
   }
 }

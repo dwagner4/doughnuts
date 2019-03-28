@@ -39,7 +39,7 @@
         },
         created() {
             //load saved meetups from firebase
-            this.$store.dispatch('loadStoredPosts')
+            this.$store.dispatch('listenForPosts')
         },
         computed: {
             loading() {
