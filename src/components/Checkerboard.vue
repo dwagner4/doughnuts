@@ -64,32 +64,34 @@
     <div class="white row7 col5"></div>
     <div class="grey row7 col6"></div>
     <div class="white row7 col7"></div>
-    
-    <div id="r1" v-bind:class="currentBdSt.r1.class"><img v-bind:src="currentBdSt.r1.img" alt=""></div>
-    <div id="r2" v-bind:class="currentBdSt.r2.class"><img v-bind:src="currentBdSt.r2.img" alt=""></div>
-    <div id="r3" v-bind:class="currentBdSt.r3.class"><img v-bind:src="currentBdSt.r3.img" alt=""></div>
-    <div id="r4" v-bind:class="currentBdSt.r4.class"><img v-bind:src="currentBdSt.r4.img" alt=""></div>
-    <div id="r5" v-bind:class="currentBdSt.r5.class"><img v-bind:src="currentBdSt.r5.img" alt=""></div>
-    <div id="r6" v-bind:class="currentBdSt.r6.class"><img v-bind:src="currentBdSt.r6.img" alt=""></div>
-    <div id="r7" v-bind:class="currentBdSt.r7.class"><img v-bind:src="currentBdSt.r7.img" alt=""></div>
-    <div id="r8" v-bind:class="currentBdSt.r8.class"><img v-bind:src="currentBdSt.r8.img" alt=""></div>
-    <div id="r9" v-bind:class="currentBdSt.r9.class"><img v-bind:src="currentBdSt.r9.img" alt=""></div>
-    <div id="r10" v-bind:class="currentBdSt.r10.class"><img v-bind:src="currentBdSt.r10.img" alt=""></div>
-    <div id="r11" v-bind:class="currentBdSt.r11.class"><img v-bind:src="currentBdSt.r11.img" alt=""></div>
-    <div id="r12" v-bind:class="currentBdSt.r12.class"><img v-bind:src="currentBdSt.r12.img" alt=""></div>
 
-    <div id="b1" v-bind:class="currentBdSt.b1.class"><img v-bind:src="currentBdSt.b1.img" alt=""></div>
-    <div id="b2" v-bind:class="currentBdSt.b2.class"><img v-bind:src="currentBdSt.b2.img" alt=""></div>
-    <div id="b3" v-bind:class="currentBdSt.b3.class"><img v-bind:src="currentBdSt.b3.img" alt=""></div>
-    <div id="b4" v-bind:class="currentBdSt.b4.class"><img v-bind:src="currentBdSt.b4.img" alt=""></div>
-    <div id="b5" v-bind:class="currentBdSt.b5.class"><img v-bind:src="currentBdSt.b5.img" alt=""></div>
-    <div id="b6" v-bind:class="currentBdSt.b6.class"><img v-bind:src="currentBdSt.b6.img" alt=""></div>
-    <div id="b7" v-bind:class="currentBdSt.b7.class"><img v-bind:src="currentBdSt.b7.img" alt=""></div>
-    <div id="b8" v-bind:class="currentBdSt.b8.class"><img v-bind:src="currentBdSt.b8.img" alt=""></div>
-    <div id="b9" v-bind:class="currentBdSt.b9.class"><img v-bind:src="currentBdSt.b9.img" alt=""></div>
-    <div id="b10" v-bind:class="currentBdSt.b10.class"><img v-bind:src="currentBdSt.b10.img" alt=""></div>
-    <div id="b11" v-bind:class="currentBdSt.b11.class"><img v-bind:src="currentBdSt.b11.img" alt=""></div>
-    <div id="b12" v-bind:class="currentBdSt.b12.class"><img v-bind:src="currentBdSt.b12.img" alt=""></div>
+    <div v-bind:class="selectedclass"></div>
+    
+    <div id="r1" @click="pcClk" v-bind:class="currentBdSt.r1.class"><img v-bind:src="currentBdSt.r1.img" alt=""></div>
+    <div id="r2" @click="pcClk" v-bind:class="currentBdSt.r2.class"><img v-bind:src="currentBdSt.r2.img" alt=""></div>
+    <div id="r3" @click="pcClk" v-bind:class="currentBdSt.r3.class"><img v-bind:src="currentBdSt.r3.img" alt=""></div>
+    <div id="r4" @click="pcClk" v-bind:class="currentBdSt.r4.class"><img v-bind:src="currentBdSt.r4.img" alt=""></div>
+    <div id="r5" @click="pcClk" v-bind:class="currentBdSt.r5.class"><img v-bind:src="currentBdSt.r5.img" alt=""></div>
+    <div id="r6" @click="pcClk" v-bind:class="currentBdSt.r6.class"><img v-bind:src="currentBdSt.r6.img" alt=""></div>
+    <div id="r7" @click="pcClk" v-bind:class="currentBdSt.r7.class"><img v-bind:src="currentBdSt.r7.img" alt=""></div>
+    <div id="r8" @click="pcClk" v-bind:class="currentBdSt.r8.class"><img v-bind:src="currentBdSt.r8.img" alt=""></div>
+    <div id="r9" @click="pcClk" v-bind:class="currentBdSt.r9.class"><img v-bind:src="currentBdSt.r9.img" alt=""></div>
+    <div id="r10" @click="pcClk" v-bind:class="currentBdSt.r10.class"><img v-bind:src="currentBdSt.r10.img" alt=""></div>
+    <div id="r11" @click="pcClk" v-bind:class="currentBdSt.r11.class"><img v-bind:src="currentBdSt.r11.img" alt=""></div>
+    <div id="r12" @click="pcClk" v-bind:class="currentBdSt.r12.class"><img v-bind:src="currentBdSt.r12.img" alt=""></div>
+
+    <div id="b1" @click="pcClk" v-bind:class="currentBdSt.b1.class"><img v-bind:src="currentBdSt.b1.img" alt=""></div>
+    <div id="b2" @click="pcClk" v-bind:class="currentBdSt.b2.class"><img v-bind:src="currentBdSt.b2.img" alt=""></div>
+    <div id="b3" @click="pcClk" v-bind:class="currentBdSt.b3.class"><img v-bind:src="currentBdSt.b3.img" alt=""></div>
+    <div id="b4" @click="pcClk" v-bind:class="currentBdSt.b4.class"><img v-bind:src="currentBdSt.b4.img" alt=""></div>
+    <div id="b5" @click="pcClk" v-bind:class="currentBdSt.b5.class"><img v-bind:src="currentBdSt.b5.img" alt=""></div>
+    <div id="b6" @click="pcClk" v-bind:class="currentBdSt.b6.class"><img v-bind:src="currentBdSt.b6.img" alt=""></div>
+    <div id="b7" @click="pcClk" v-bind:class="currentBdSt.b7.class"><img v-bind:src="currentBdSt.b7.img" alt=""></div>
+    <div id="b8" @click="pcClk" v-bind:class="currentBdSt.b8.class"><img v-bind:src="currentBdSt.b8.img" alt=""></div>
+    <div id="b9" @click="pcClk" v-bind:class="currentBdSt.b9.class"><img v-bind:src="currentBdSt.b9.img" alt=""></div>
+    <div id="b10" @click="pcClk" v-bind:class="currentBdSt.b10.class"><img v-bind:src="currentBdSt.b10.img" alt=""></div>
+    <div id="b11" @click="pcClk" v-bind:class="currentBdSt.b11.class"><img v-bind:src="currentBdSt.b11.img" alt=""></div>
+    <div id="b12" @click="pcClk" v-bind:class="currentBdSt.b12.class"><img v-bind:src="currentBdSt.b12.img" alt=""></div>
   </div>
 </template>
 
@@ -100,7 +102,8 @@ import { mapGetters } from 'vuex'
 export default {
   data () {
     return {
-     
+      selectedclass: 'notsel',
+      selectedPc: null
     }
   },
   computed: {
@@ -110,12 +113,19 @@ export default {
   },
  
   methods: {
-    movePiece( fm, to ) {},
-  },
-  created: function() {
+    created: function() {
 
+    }, 
+    pcClk: function(e) {
+      console.log(e)
+      let classStart = e.target.parentNode.className
+      this.selectedPc = e.target.parentNode.id
+      console.log(classStart)
+      this.selectedclass = classStart + " selected" 
+    }
   }
 }
+
 </script>
 
 <style scoped>
@@ -147,6 +157,14 @@ export default {
   .grey {
     background-color: #555555;
     height: 63px;
+  }
+  .selected {
+    background-color: rgba(0, 255, 0, 0.3);;
+    height: 63px;
+    z-index: 10;
+  }
+  .notsel {
+    display: none;
   }
 
 </style>
