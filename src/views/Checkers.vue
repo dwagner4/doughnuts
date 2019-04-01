@@ -1,12 +1,12 @@
 <template>
   <div class="about">
     <v-text-field
-                  v-model="boardstate"
+                  v-model="currentBdSt"
                   label="board state"
                   @change="matchChange"
                 >
     </v-text-field>
-    <p>{{currentBoardState}}</p>
+    <p>{{currentcurrentBdSt}}</p>
     <h1>This is a checkboard</h1>
     <checkerboard />
   </div>
@@ -22,17 +22,17 @@ export default {
   },
   data () {
     return {
-      boardstate: "rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb"
+      currentBdSt: "rrrrrrrrrrrreeeeeeeebbbbbbbbbbbb"
     }
   },
   computed: {
-    currentBoardState() {
-      return this.$store.getters.currentBoardState;
+    currentcurrentBdSt() {
+      return this.$store.getters.currentcurrentBdSt;
     },
   },
   methods: {
     matchChange () {
-      this.$store.dispatch('doMove', this.boardstate);
+      this.$store.dispatch('doMove', this.currentBdSt);
     }
   }
   
