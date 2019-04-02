@@ -31,7 +31,9 @@ export const state = {
   },
   allMvs: [],
   selected: null,
-  spacesize: 63
+  spacesize: 63,
+  
+  
 }
 export const getters = {
   currentBdSt(state) {

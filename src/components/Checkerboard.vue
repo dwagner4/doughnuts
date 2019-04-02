@@ -1,71 +1,78 @@
 <template>
   <div id="board">
-    <div class="white row0 col0"></div>
-    <div class="grey row0 col1"></div>
-    <div class="white row0 col2"></div>
-    <div class="grey row0 col3"></div>
-    <div class="white row0 col4"></div>
-    <div class="grey row0 col5"></div>
-    <div class="white row0 col6"></div>
-    <div class="grey row0 col7"></div>
-    <div class="grey row1 col0"></div>
-    <div class="white row1 col1"></div>
-    <div class="grey row1 col2"></div>
-    <div class="white row1 col3"></div>
-    <div class="grey row1 col4"></div>
-    <div class="white row1 col5"></div>
-    <div class="grey row1 col6"></div>
-    <div class="white row1 col7"></div>
-    <div class="white row2 col0"></div>
-    <div class="grey row2 col1"></div>
-    <div class="white row2 col2"></div>
-    <div class="grey row2 col3"></div>
-    <div class="white row2 col4"></div>
-    <div class="grey row2 col5"></div>
-    <div class="white row2 col6"></div>
-    <div class="grey row2 col7"></div>
-    <div class="grey row3 col0"></div>
-    <div class="white row3 col1"></div>
-    <div class="grey row3 col2"></div>
-    <div class="white row3 col3"></div>
-    <div class="grey row3 col4"></div>
-    <div class="white row3 col5"></div>
-    <div class="grey row3 col6"></div>
-    <div class="white row3 col7"></div>
-    <div class="white row4 col0"></div>
-    <div class="grey row4 col1"></div>
-    <div class="white row4 col2"></div>
-    <div class="grey row4 col3"></div>
-    <div class="white row4 col4"></div>
-    <div class="grey row4 col5"></div>
-    <div class="white row4 col6"></div>
-    <div class="grey row4 col7"></div>
-    <div class="grey row5 col0"></div>
-    <div class="white row5 col1"></div>
-    <div class="grey row5 col2"></div>
-    <div class="white row5 col3"></div>
-    <div class="grey row5 col4"></div>
-    <div class="white row5 col5"></div>
-    <div class="grey row5 col6"></div>
-    <div class="white row5 col7"></div>
-    <div class="white row6 col0"></div>
-    <div class="grey row6 col1"></div>
-    <div class="white row6 col2"></div>
-    <div class="grey row6 col3"></div>
-    <div class="white row6 col4"></div>
-    <div class="grey row6 col5"></div>
-    <div class="white row6 col6"></div>
-    <div class="grey row6 col7"></div>
-    <div class="grey row7 col0"></div>
-    <div class="white row7 col1"></div>
-    <div class="grey row7 col2"></div>
-    <div class="white row7 col3"></div>
-    <div class="grey row7 col4"></div>
-    <div class="white row7 col5"></div>
-    <div class="grey row7 col6"></div>
-    <div class="white row7 col7"></div>
+    <div @click="spaceClk" id="0" v-bind:class="spaces[0].class"></div>
+    <div v-bind:class="spaces[1].class"></div>
+    <div id="2" @click="spaceClk" v-bind:class="spaces[2].class"></div>
+    <div v-bind:class="spaces[3].class"></div>
+    <div id="4" @click="spaceClk" v-bind:class="spaces[4].class"></div>
+    <div v-bind:class="spaces[5].class"></div>
+    <div id="6" @click="spaceClk" v-bind:class="spaces[6].class"></div>
+    <div v-bind:class="spaces[7].class"></div>
 
-    <div v-bind:class="selectedclass"></div>
+    <div v-bind:class="spaces[8].class"></div>
+    <div id="9" @click="spaceClk" v-bind:class="spaces[9].class"></div>
+    <div v-bind:class="spaces[10].class"></div>
+    <div id="11" @click="spaceClk" v-bind:class="spaces[11].class"></div>
+    <div v-bind:class="spaces[12].class"></div>
+    <div id="13" @click="spaceClk" v-bind:class="spaces[13].class"></div>
+    <div v-bind:class="spaces[14].class"></div>
+    <div id="15" @click="spaceClk" v-bind:class="spaces[15].class"></div>
+
+    <div id="16" @click="spaceClk" v-bind:class="spaces[16].class"></div>
+    <div v-bind:class="spaces[17].class"></div>
+    <div id="18" @click="spaceClk" v-bind:class="spaces[18].class"></div>
+    <div v-bind:class="spaces[19].class"></div>
+    <div id="20" @click="spaceClk" v-bind:class="spaces[20].class"></div>
+    <div v-bind:class="spaces[21].class"></div>
+    <div id="22" @click="spaceClk" v-bind:class="spaces[22].class"></div>
+    <div v-bind:class="spaces[23].class"></div>
+
+    <div v-bind:class="spaces[24].class"></div>
+    <div id="25" @click="spaceClk" v-bind:class="spaces[25].class"></div>
+    <div v-bind:class="spaces[26].class"></div>
+    <div id="27" @click="spaceClk" v-bind:class="spaces[27].class"></div>
+    <div v-bind:class="spaces[28].class"></div>
+    <div id="29" @click="spaceClk" v-bind:class="spaces[29].class"></div>
+    <div v-bind:class="spaces[30].class"></div>
+    <div id="31" @click="spaceClk" v-bind:class="spaces[31].class"></div>
+
+    <div id="32" @click="spaceClk" v-bind:class="spaces[32].class"></div>
+    <div v-bind:class="spaces[33].class"></div>
+    <div id="34" @click="spaceClk" v-bind:class="spaces[34].class"></div>
+    <div v-bind:class="spaces[35].class"></div>
+    <div id="36" @click="spaceClk" v-bind:class="spaces[36].class"></div>
+    <div v-bind:class="spaces[37].class"></div>
+    <div id="38" @click="spaceClk" v-bind:class="spaces[38].class"></div>
+    <div v-bind:class="spaces[39].class"></div>
+
+    <div v-bind:class="spaces[40].class"></div>
+    <div id="41" @click="spaceClk" v-bind:class="spaces[41].class"></div>
+    <div v-bind:class="spaces[42].class"></div>
+    <div id="43" @click="spaceClk" v-bind:class="spaces[43].class"></div>
+    <div v-bind:class="spaces[44].class"></div>
+    <div id="45" @click="spaceClk" v-bind:class="spaces[45].class"></div>
+    <div v-bind:class="spaces[46].class"></div>
+    <div id="47" @click="spaceClk" v-bind:class="spaces[47].class"></div>
+
+    <div id="48" @click="spaceClk" v-bind:class="spaces[48].class"></div>
+    <div v-bind:class="spaces[49].class"></div>
+    <div id="50" @click="spaceClk" v-bind:class="spaces[50].class"></div>
+    <div v-bind:class="spaces[51].class"></div>
+    <div id="52" @click="spaceClk" v-bind:class="spaces[52].class"></div>
+    <div v-bind:class="spaces[53].class"></div>
+    <div id="54" @click="spaceClk" v-bind:class="spaces[54].class"></div>
+    <div v-bind:class="spaces[55].class"></div>
+
+    <div v-bind:class="spaces[56].class"></div>
+    <div id="57" @click="spaceClk" v-bind:class="spaces[57].class"></div>
+    <div v-bind:class="spaces[58].class"></div>
+    <div id="59" @click="spaceClk" v-bind:class="spaces[59].class"></div>
+    <div v-bind:class="spaces[60].class"></div>
+    <div id="61" @click="spaceClk" v-bind:class="spaces[61].class"></div>
+    <div v-bind:class="spaces[62].class"></div>
+    <div id="63" @click="spaceClk" v-bind:class="spaces[63].class"></div>
+
+    <div @click="selClk" v-bind:class="selectedclass"></div>
     
     <div id="r1" @click="pcClk" v-bind:class="currentBdSt.r1.class"><img v-bind:src="currentBdSt.r1.img" alt=""></div>
     <div id="r2" @click="pcClk" v-bind:class="currentBdSt.r2.class"><img v-bind:src="currentBdSt.r2.img" alt=""></div>
@@ -103,7 +110,25 @@ export default {
   data () {
     return {
       selectedclass: 'notsel',
-      selectedPc: null
+      selectedPc: null,
+      spaces: [
+        { class: "white row0 col0"}, { class: "grey row0 col1"}, { class: "white row0 col2"}, { class: "grey row0 col3"},
+        { class: "white row0 col4"}, { class: "grey row0 col5"}, { class: "white row0 col6"}, { class: "grey row0 col7"}, 
+        { class: "grey row1 col0"}, { class: "white row1 col1"}, { class: "grey row1 col2"}, { class: "white row1 col3"}, 
+        { class: "grey row1 col4"}, { class: "white row1 col5"}, { class: "grey row1 col6"}, { class: "white row1 col7"},
+        { class: "white row2 col0"}, { class: "grey row2 col1"}, { class: "white row2 col2"}, { class: "grey row2 col3"},
+        { class: "white row2 col4"}, { class: "grey row2 col5"}, { class: "white row2 col6"}, { class: "grey row2 col7"}, 
+        { class: "grey row3 col0"}, { class: "white row3 col1"}, { class: "grey row3 col2"}, { class: "white row3 col3"}, 
+        { class: "grey row3 col4"}, { class: "white row3 col5"}, { class: "grey row3 col6"}, { class: "white row3 col7"},
+        { class: "white row4 col0"}, { class: "grey row4 col1"}, { class: "white row4 col2"}, { class: "grey row4 col3"},
+        { class: "white row4 col4"}, { class: "grey row4 col5"}, { class: "white row4 col6"}, { class: "grey row4 col7"},
+        { class: "grey row5 col0"}, { class: "white row5 col1"}, { class: "grey row5 col2"}, { class: "white row5 col3"}, 
+        { class: "grey row5 col4"}, { class: "white row5 col5"}, { class: "grey row5 col6"}, { class: "white row5 col7"},
+        { class: "white row6 col0"}, { class: "grey row6 col1"}, { class: "white row6 col2"}, { class: "grey row6 col3"},
+        { class: "white row6 col4"}, { class: "grey row6 col5"}, { class: "white row6 col6"}, { class: "grey row6 col7"},
+        { class: "grey row7 col0"}, { class: "white row7 col1"}, { class: "grey row7 col2"}, { class: "white row7 col3"}, 
+        { class: "grey row7 col4"}, { class: "white row7 col5"}, { class: "grey row7 col6"}, { class: "white row7 col7"} 
+      ]
     }
   },
   computed: {
@@ -117,11 +142,31 @@ export default {
 
     }, 
     pcClk: function(e) {
+      let clkPc = e.target.parentNode.id
+      if (!this.selectedPc) {
+        this.selectedPc = clkPc
+        let classStart = e.target.parentNode.className
+        this.selectedclass = classStart + " selected"
+      } else {
+        this.selectedPc = clkPc
+        let classStart = e.target.parentNode.className
+        this.selectedclass = classStart + " selected"
+      }
+    },
+    selClk: function() {
+      this.selectedPc = null
+      this.selectedclass = 'notsel'
+    },
+    spaceClk: function(e) {
       console.log(e)
-      let classStart = e.target.parentNode.className
-      this.selectedPc = e.target.parentNode.id
-      console.log(classStart)
-      this.selectedclass = classStart + " selected" 
+      let spaceID = parseInt(e.target.id)
+      console.log(spaceID)
+      let xx = Math.floor(spaceID / 8)
+      let yy = spaceID % 8
+      console.log( xx + ", " + yy + ", " + this.selectedPc)
+      console.log(this.currentBdSt[this.selectedPc].x)
+      this.currentBdSt[this.selectedPc].x = xx
+      this.currentBdSt[this.selectedPc].y = yy
     }
   }
 }
