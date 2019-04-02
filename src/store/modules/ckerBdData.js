@@ -4,7 +4,7 @@ import { db } from '@/fb'
 
 export const state = {
   currentBdSt: { 
-    r1: {x: 0, y: 0, piece: 'r', class: "row4 col0", img: "assets/red.png"},
+    r1: {x: 0, y: 0, piece: 'r', class: "row0 col0", img: "assets/red.png"},
     r2: {x: 2, y: 0, piece: 'r', class: "row0 col2", img: "assets/red.png"},
     r3: {x: 4, y: 0, piece: 'r', class: "row0 col4", img: "assets/red.png"},
     r4: {x: 6, y: 0, piece: 'r', class: "row0 col6", img: "assets/red.png"},

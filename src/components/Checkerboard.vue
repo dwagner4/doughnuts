@@ -158,15 +158,14 @@ export default {
       this.selectedclass = 'notsel'
     },
     spaceClk: function(e) {
-      console.log(e)
       let spaceID = parseInt(e.target.id)
-      console.log(spaceID)
       let xx = Math.floor(spaceID / 8)
       let yy = spaceID % 8
-      console.log( xx + ", " + yy + ", " + this.selectedPc)
-      console.log(this.currentBdSt[this.selectedPc].x)
       this.currentBdSt[this.selectedPc].x = xx
       this.currentBdSt[this.selectedPc].y = yy
+      this.currentBdSt[this.selectedPc].class = "row" + xx + " col" + yy
+      this.selectedPc = null
+      this.selectedclass = 'notsel'
     }
   }
 }
