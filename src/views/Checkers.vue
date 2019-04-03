@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <div class="about" >
     <h1>This is a checkboard</h1>
-    <checkerboard />
+    <checkerboard v-on:game-move="gamehandler" />
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     
   },
   methods: {
-    
+    gamehandler: function() {alert("yoho")}
   }
   
 }
