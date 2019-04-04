@@ -1,6 +1,6 @@
 <template>
   <div id="board">
-    <div @click="spaceClk" id="0" v-bind:class="spaces[0].class"></div>
+    <div @click="spaceClk" id="0" v-bind:style="spaces[0].class"></div>
     <div v-bind:class="spaces[1].class"></div>
     <div id="2" @click="spaceClk" v-bind:class="spaces[2].class"></div>
     <div v-bind:class="spaces[3].class"></div>
@@ -74,31 +74,31 @@
 
     <div @click="selClk" v-bind:class="selectedclass"></div>
     
-    <div id="r1" @click="pcClk" v-bind:class="currentBdSt.r1.class"><img v-bind:src="currentBdSt.r1.img" alt=""></div>
-    <div id="r2" @click="pcClk" v-bind:class="currentBdSt.r2.class"><img v-bind:src="currentBdSt.r2.img" alt=""></div>
-    <div id="r3" @click="pcClk" v-bind:class="currentBdSt.r3.class"><img v-bind:src="currentBdSt.r3.img" alt=""></div>
-    <div id="r4" @click="pcClk" v-bind:class="currentBdSt.r4.class"><img v-bind:src="currentBdSt.r4.img" alt=""></div>
-    <div id="r5" @click="pcClk" v-bind:class="currentBdSt.r5.class"><img v-bind:src="currentBdSt.r5.img" alt=""></div>
-    <div id="r6" @click="pcClk" v-bind:class="currentBdSt.r6.class"><img v-bind:src="currentBdSt.r6.img" alt=""></div>
-    <div id="r7" @click="pcClk" v-bind:class="currentBdSt.r7.class"><img v-bind:src="currentBdSt.r7.img" alt=""></div>
-    <div id="r8" @click="pcClk" v-bind:class="currentBdSt.r8.class"><img v-bind:src="currentBdSt.r8.img" alt=""></div>
-    <div id="r9" @click="pcClk" v-bind:class="currentBdSt.r9.class"><img v-bind:src="currentBdSt.r9.img" alt=""></div>
-    <div id="r10" @click="pcClk" v-bind:class="currentBdSt.r10.class"><img v-bind:src="currentBdSt.r10.img" alt=""></div>
-    <div id="r11" @click="pcClk" v-bind:class="currentBdSt.r11.class"><img v-bind:src="currentBdSt.r11.img" alt=""></div>
-    <div id="r12" @click="pcClk" v-bind:class="currentBdSt.r12.class"><img v-bind:src="currentBdSt.r12.img" alt=""></div>
+    <div id="r1" @click="pcClk" v-bind:class="pieceStyle('r1')"><img v-bind:src="pieceImg('r1')" alt=""></div>
+    <div id="r2" @click="pcClk" v-bind:class="pieceStyle('r2')"><img v-bind:src="pieceImg('r2')" alt=""></div>
+    <div id="r3" @click="pcClk" v-bind:class="pieceStyle('r3')"><img v-bind:src="pieceImg('r3')" alt=""></div>
+    <div id="r4" @click="pcClk" v-bind:class="pieceStyle('r4')"><img v-bind:src="pieceImg('r4')" alt=""></div>
+    <div id="r5" @click="pcClk" v-bind:class="pieceStyle('r5')"><img v-bind:src="pieceImg('r5')" alt=""></div>
+    <div id="r6" @click="pcClk" v-bind:class="pieceStyle('r6')"><img v-bind:src="pieceImg('r6')" alt=""></div>
+    <div id="r7" @click="pcClk" v-bind:class="pieceStyle('r7')"><img v-bind:src="pieceImg('r7')" alt=""></div>
+    <div id="r8" @click="pcClk" v-bind:class="pieceStyle('r8')"><img v-bind:src="pieceImg('r8')" alt=""></div>
+    <div id="r9" @click="pcClk" v-bind:class="pieceStyle('r9')"><img v-bind:src="pieceImg('r9')" alt=""></div>
+    <div id="r10" @click="pcClk" v-bind:class="pieceStyle('r10')"><img v-bind:src="pieceImg('r10')" alt=""></div>
+    <div id="r11" @click="pcClk" v-bind:class="pieceStyle('r11')"><img v-bind:src="pieceImg('r11')" alt=""></div>
+    <div id="r12" @click="pcClk" v-bind:class="pieceStyle('r12')"><img v-bind:src="pieceImg('r12')" alt=""></div>
 
-    <div id="b1" @click="pcClk" v-bind:class="currentBdSt.b1.class"><img v-bind:src="currentBdSt.b1.img" alt=""></div>
-    <div id="b2" @click="pcClk" v-bind:class="currentBdSt.b2.class"><img v-bind:src="currentBdSt.b2.img" alt=""></div>
-    <div id="b3" @click="pcClk" v-bind:class="currentBdSt.b3.class"><img v-bind:src="currentBdSt.b3.img" alt=""></div>
-    <div id="b4" @click="pcClk" v-bind:class="currentBdSt.b4.class"><img v-bind:src="currentBdSt.b4.img" alt=""></div>
-    <div id="b5" @click="pcClk" v-bind:class="currentBdSt.b5.class"><img v-bind:src="currentBdSt.b5.img" alt=""></div>
-    <div id="b6" @click="pcClk" v-bind:class="currentBdSt.b6.class"><img v-bind:src="currentBdSt.b6.img" alt=""></div>
-    <div id="b7" @click="pcClk" v-bind:class="currentBdSt.b7.class"><img v-bind:src="currentBdSt.b7.img" alt=""></div>
-    <div id="b8" @click="pcClk" v-bind:class="currentBdSt.b8.class"><img v-bind:src="currentBdSt.b8.img" alt=""></div>
-    <div id="b9" @click="pcClk" v-bind:class="currentBdSt.b9.class"><img v-bind:src="currentBdSt.b9.img" alt=""></div>
-    <div id="b10" @click="pcClk" v-bind:class="currentBdSt.b10.class"><img v-bind:src="currentBdSt.b10.img" alt=""></div>
-    <div id="b11" @click="pcClk" v-bind:class="currentBdSt.b11.class"><img v-bind:src="currentBdSt.b11.img" alt=""></div>
-    <div id="b12" @click="pcClk" v-bind:class="currentBdSt.b12.class"><img v-bind:src="currentBdSt.b12.img" alt=""></div>
+    <div id="b1" @click="pcClk" v-bind:class="pieceStyle('b1')"><img v-bind:src="pieceImg('b1')" alt=""></div>
+    <div id="b2" @click="pcClk" v-bind:class="pieceStyle('b2')"><img v-bind:src="pieceImg('b2')" alt=""></div>
+    <div id="b3" @click="pcClk" v-bind:class="pieceStyle('b3')"><img v-bind:src="pieceImg('b3')" alt=""></div>
+    <div id="b4" @click="pcClk" v-bind:class="pieceStyle('b4')"><img v-bind:src="pieceImg('b4')" alt=""></div>
+    <div id="b5" @click="pcClk" v-bind:class="pieceStyle('b5')"><img v-bind:src="pieceImg('b5')" alt=""></div>
+    <div id="b6" @click="pcClk" v-bind:class="pieceStyle('b6')"><img v-bind:src="pieceImg('b6')" alt=""></div>
+    <div id="b7" @click="pcClk" v-bind:class="pieceStyle('b7')"><img v-bind:src="pieceImg('b7')" alt=""></div>
+    <div id="b8" @click="pcClk" v-bind:class="pieceStyle('b8')"><img v-bind:src="pieceImg('b8')" alt=""></div>
+    <div id="b9" @click="pcClk" v-bind:class="pieceStyle('b9')"><img v-bind:src="pieceImg('b9')" alt=""></div>
+    <div id="b10" @click="pcClk" v-bind:class="pieceStyle('b10')"><img v-bind:src="pieceImg('b10')" alt=""></div>
+    <div id="b11" @click="pcClk" v-bind:class="pieceStyle('b11')"><img v-bind:src="pieceImg('b11')" alt=""></div>
+    <div id="b12" @click="pcClk" v-bind:class="pieceStyle('b12')"><img v-bind:src="pieceImg('b12')" alt=""></div>
   </div>
 </template>
 
@@ -141,6 +141,19 @@ export default {
     created: function() {
 
     }, 
+    pieceStyle: function(pcID) {
+      let pc = this.currentBdSt[pcID] 
+      return 'row' + pc.y + ' col' + pc.x
+    },
+    pieceImg: function(pcID) {
+      let pcCode = this.currentBdSt[pcID].piece
+      console.log(pcCode)
+      let result = 'assets/red.png'
+      if (pcCode == 'b') {
+        result = 'assets/blk.png'
+      }
+      return result
+    },
     pcClk: function(e) {
       let clkPc = e.target.parentNode.id
       if (!this.selectedPc) {
@@ -163,7 +176,7 @@ export default {
       let yy = spaceID % 8
       this.currentBdSt[this.selectedPc].x = xx
       this.currentBdSt[this.selectedPc].y = yy
-      this.currentBdSt[this.selectedPc].class = "row" + xx + " col" + yy
+      
       this.$emit('game-move',{pcId: this.selectedPc, x: xx, y: yy})
       this.selectedPc = null
       this.selectedclass = 'notsel'
