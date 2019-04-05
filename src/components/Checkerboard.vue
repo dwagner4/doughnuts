@@ -74,31 +74,31 @@
 
     <div @click="selClk" v-bind:class="selectedclass"></div>
     
-    <div id="r1" @click="pcClk" v-bind:class="pieceStyle('r1')"><img v-bind:src="pieceImg('r1')" alt=""></div>
-    <div id="r2" @click="pcClk" v-bind:class="pieceStyle('r2')"><img v-bind:src="pieceImg('r2')" alt=""></div>
-    <div id="r3" @click="pcClk" v-bind:class="pieceStyle('r3')"><img v-bind:src="pieceImg('r3')" alt=""></div>
-    <div id="r4" @click="pcClk" v-bind:class="pieceStyle('r4')"><img v-bind:src="pieceImg('r4')" alt=""></div>
-    <div id="r5" @click="pcClk" v-bind:class="pieceStyle('r5')"><img v-bind:src="pieceImg('r5')" alt=""></div>
-    <div id="r6" @click="pcClk" v-bind:class="pieceStyle('r6')"><img v-bind:src="pieceImg('r6')" alt=""></div>
-    <div id="r7" @click="pcClk" v-bind:class="pieceStyle('r7')"><img v-bind:src="pieceImg('r7')" alt=""></div>
-    <div id="r8" @click="pcClk" v-bind:class="pieceStyle('r8')"><img v-bind:src="pieceImg('r8')" alt=""></div>
-    <div id="r9" @click="pcClk" v-bind:class="pieceStyle('r9')"><img v-bind:src="pieceImg('r9')" alt=""></div>
-    <div id="r10" @click="pcClk" v-bind:class="pieceStyle('r10')"><img v-bind:src="pieceImg('r10')" alt=""></div>
-    <div id="r11" @click="pcClk" v-bind:class="pieceStyle('r11')"><img v-bind:src="pieceImg('r11')" alt=""></div>
-    <div id="r12" @click="pcClk" v-bind:class="pieceStyle('r12')"><img v-bind:src="pieceImg('r12')" alt=""></div>
+    <div id="r1" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r1)"><img v-bind:src="pieceImg(currentBdSt.r1)" alt=""></div>
+    <div id="r2" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r2)"><img v-bind:src="pieceImg(currentBdSt.r2)" alt=""></div>
+    <div id="r3" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r3)"><img v-bind:src="pieceImg(currentBdSt.r3)" alt=""></div>
+    <div id="r4" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r4)"><img v-bind:src="pieceImg(currentBdSt.r4)" alt=""></div>
+    <div id="r5" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r5)"><img v-bind:src="pieceImg(currentBdSt.r5)" alt=""></div>
+    <div id="r6" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r6)"><img v-bind:src="pieceImg(currentBdSt.r6)" alt=""></div>
+    <div id="r7" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r7)"><img v-bind:src="pieceImg(currentBdSt.r7)" alt=""></div>
+    <div id="r8" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r8)"><img v-bind:src="pieceImg(currentBdSt.r8)" alt=""></div>
+    <div id="r9" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r9)"><img v-bind:src="pieceImg(currentBdSt.r9)" alt=""></div>
+    <div id="r10" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r10)"><img v-bind:src="pieceImg(currentBdSt.r10)" alt=""></div>
+    <div id="r11" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r11)"><img v-bind:src="pieceImg(currentBdSt.r11)" alt=""></div>
+    <div id="r12" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.r12)"><img v-bind:src="pieceImg(currentBdSt.r12)" alt=""></div>
 
-    <div id="b1" @click="pcClk" v-bind:class="pieceStyle('b1')"><img v-bind:src="pieceImg('b1')" alt=""></div>
-    <div id="b2" @click="pcClk" v-bind:class="pieceStyle('b2')"><img v-bind:src="pieceImg('b2')" alt=""></div>
-    <div id="b3" @click="pcClk" v-bind:class="pieceStyle('b3')"><img v-bind:src="pieceImg('b3')" alt=""></div>
-    <div id="b4" @click="pcClk" v-bind:class="pieceStyle('b4')"><img v-bind:src="pieceImg('b4')" alt=""></div>
-    <div id="b5" @click="pcClk" v-bind:class="pieceStyle('b5')"><img v-bind:src="pieceImg('b5')" alt=""></div>
-    <div id="b6" @click="pcClk" v-bind:class="pieceStyle('b6')"><img v-bind:src="pieceImg('b6')" alt=""></div>
-    <div id="b7" @click="pcClk" v-bind:class="pieceStyle('b7')"><img v-bind:src="pieceImg('b7')" alt=""></div>
-    <div id="b8" @click="pcClk" v-bind:class="pieceStyle('b8')"><img v-bind:src="pieceImg('b8')" alt=""></div>
-    <div id="b9" @click="pcClk" v-bind:class="pieceStyle('b9')"><img v-bind:src="pieceImg('b9')" alt=""></div>
-    <div id="b10" @click="pcClk" v-bind:class="pieceStyle('b10')"><img v-bind:src="pieceImg('b10')" alt=""></div>
-    <div id="b11" @click="pcClk" v-bind:class="pieceStyle('b11')"><img v-bind:src="pieceImg('b11')" alt=""></div>
-    <div id="b12" @click="pcClk" v-bind:class="pieceStyle('b12')"><img v-bind:src="pieceImg('b12')" alt=""></div>
+    <div id="b1" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b1)"><img v-bind:src="pieceImg(currentBdSt.b1)" alt=""></div>
+    <div id="b2" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b2)"><img v-bind:src="pieceImg(currentBdSt.b2)" alt=""></div>
+    <div id="b3" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b3)"><img v-bind:src="pieceImg(currentBdSt.b3)" alt=""></div>
+    <div id="b4" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b4)"><img v-bind:src="pieceImg(currentBdSt.b4)" alt=""></div>
+    <div id="b5" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b5)"><img v-bind:src="pieceImg(currentBdSt.b5)" alt=""></div>
+    <div id="b6" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b6)"><img v-bind:src="pieceImg(currentBdSt.b6)" alt=""></div>
+    <div id="b7" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b7)"><img v-bind:src="pieceImg(currentBdSt.b7)" alt=""></div>
+    <div id="b8" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b8)"><img v-bind:src="pieceImg(currentBdSt.b8)" alt=""></div>
+    <div id="b9" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b9)"><img v-bind:src="pieceImg(currentBdSt.b9)" alt=""></div>
+    <div id="b10" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b10)"><img v-bind:src="pieceImg(currentBdSt.b10)" alt=""></div>
+    <div id="b11" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b11)"><img v-bind:src="pieceImg(currentBdSt.b11)" alt=""></div>
+    <div id="b12" @click="pcClk" v-bind:class="pieceStyle(currentBdSt.b12)"><img v-bind:src="pieceImg(currentBdSt.b12)" alt=""></div>
   </div>
 </template>
 
@@ -141,12 +141,12 @@ export default {
     created: function() {
 
     }, 
-    pieceStyle: function(pcID) {
-      let pc = this.currentBdSt[pcID] 
-      return 'row' + pc.y + ' col' + pc.x
+    pieceStyle: function(pc) {
+      // let pc = this.currentBdSt[pcID] 
+      return 'row' + pc.x + ' col' + pc.y
     },
     pieceImg: function(pcID) {
-      let pcCode = this.currentBdSt[pcID].piece
+      let pcCode = pcID.piece
       console.log(pcCode)
       let result = 'assets/red.png'
       if (pcCode == 'b') {
