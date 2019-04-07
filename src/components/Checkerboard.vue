@@ -105,6 +105,7 @@
 <script>
 
 import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   data () {
@@ -133,21 +134,16 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'currentBdSt', 'allMvs', 'selected', 'spacesize'
+      'currentBdSt', 'allMvs'
     ])
   },
  
-  methods: {
-    created: function() {
-
-    }, 
+  methods: { 
     pieceStyle: function(pc) {
-      // let pc = this.currentBdSt[pcID] 
       return 'row' + pc.x + ' col' + pc.y
     },
     pieceImg: function(pcID) {
       let pcCode = pcID.piece
-      console.log(pcCode)
       let result = 'assets/red.png'
       if (pcCode == 'b') {
         result = 'assets/blk.png'
@@ -174,13 +170,13 @@ export default {
       let spaceID = parseInt(e.target.id)
       let xx = Math.floor(spaceID / 8)
       let yy = spaceID % 8
-      this.currentBdSt[this.selectedPc].x = xx
-      this.currentBdSt[this.selectedPc].y = yy
-      
-      this.$emit('game-move',{pcId: this.selectedPc, x: xx, y: yy})
+      this.doMove({ pc: this.selectedPc, toX: xx, toY: yy})
       this.selectedPc = null
       this.selectedclass = 'notsel'
-    }
+    },
+    ...mapActions([
+      'doMove', 'newMatch'
+    ])
   }
 }
 

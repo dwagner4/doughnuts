@@ -30,10 +30,11 @@ export const state = {
     b12: {x: 7, y: 7, piece: 'b'},
   },
   allMvs: [],
-  selected: null,
-  spacesize: 63,
-  
-  
+  gameid: "",  
+  isRemote: false,
+  yourColor: "r",
+  msg: "",
+  lastMove: {},
 }
 export const getters = {
   currentBdSt(state) {
@@ -42,11 +43,8 @@ export const getters = {
   allMvs(state) {
     return state.allMvs
   },
-  selected(state) {
-    return state.selected
-  },
-  spacesize(state) {
-    return state.spacesize
+  isRemote(state) {
+    return state.isRemote
   }
 }
 export const mutations = {
@@ -62,12 +60,21 @@ export const mutations = {
   SET_SPACE_SIZE(state, sz) {
     state.spacesize = sz; 
   },
+  MOVE_PC(state, move) {
+    state.currentBdSt[move.pc].x = move.toX
+    state.currentBdSt[move.pc].y = move.toY
+  }
 }
 export const actions = {
-
   doMove ( context, payload ) {
-    console.log( payload )
-    context.commit('SET_BOARD_STATE', payload)
+    if ( context.state.isRemote) {
+      alert('I do not know how to play remotely, Sorry')
+    } else {
+      context.commit('MOVE_PC', payload)
+    }
+  },
+  newMatch ( context ) {
+    alert("in new match")
   }
 }
 
