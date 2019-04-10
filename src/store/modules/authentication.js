@@ -7,6 +7,7 @@ export default {
     user: {},
     status: false,
     registerDialog: false,
+    userName: '',
     userprofile: {},
   },
 
@@ -17,8 +18,11 @@ export default {
     userprofile(state) {
       return state.userprofile
     },
-    username(state) {
-      return state.username
+    uid(state){
+      return state.user.uid
+    },
+    userName(state) {
+      return state.userName
     },
     isSignedIn(state) {
       return state.status;
