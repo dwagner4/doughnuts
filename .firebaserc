@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "this-codebase"
+=======
+    "default": "checkers-online-abf44"
+>>>>>>> origin/cloudfunctions
   }
 }
