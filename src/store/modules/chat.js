@@ -1,4 +1,4 @@
-import { db, myauth, firebase } from '@/fb'
+import { db } from '@/fb'
 
 export default {
   state: {
@@ -22,7 +22,7 @@ export default {
         })
       }
     },
-    user(state) {
+    uuser(state) {
       return state.user
     },
   },
@@ -46,7 +46,7 @@ export default {
       .then((data) => {
         //console.log(data)
         const id = data.id
-        //console.log("id is: ", id)
+        console.log("id is: ", id)
       
         commit('SET_LOADING', false)
       })

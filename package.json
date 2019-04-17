@@ -9,6 +9,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "aframe": "^0.9.0",
     "firebase": "^5.9.1",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",

@@ -42,6 +42,7 @@ export default {
                 { icon: 'home', text: 'Home Page', route: '/' },
                 { icon: 'supervised_user_circle', text: 'Lobby', route: '/lobby' },
                 { icon: 'date_range', text: 'Play Checkers', route: '/checkers' },
+                { icon: 'date_range', text: 'Checkers 3D', route: '/aframe' },
             ]
         }
     },

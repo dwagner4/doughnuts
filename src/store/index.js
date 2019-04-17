@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import * as cker from './modules/ckerBdData'
 import fbauth from './modules/authentication'
 import chat from './modules/chat'
-import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 Vue.use(Vuex)
