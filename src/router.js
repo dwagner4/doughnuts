@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Lobby from './views/Lobby.vue'
 import Checkers from './views/Checkers.vue'
 import Aframe from './views/Aframe.vue'
+import Aframe2 from './views/Aframe2.vue'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/aframe',
       name: 'aframe',
       component: Aframe
+    },
+    {
+      path: '/aframe2',
+      name: 'aframe2',
+      component: Aframe2
     }
   ]
 })
